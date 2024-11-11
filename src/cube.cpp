@@ -10,6 +10,27 @@ int cube::cube[cube::N][cube::N][cube::N]; // Definition and initialization
 int cube::isTrue[cube::N][cube::N][cube::N];
 bool cube::statusNew = true;
 
+std::vector<int> cube::flatCube(int cube[cube::N][cube::N][cube::N]) {
+  std::vector<int> flat(125);
+  for (int i = 0; i < cube::N; ++i) {
+    for (int j = 0; j < cube::N; ++j) {
+      for (int k = 0; k < cube::N; ++k) {
+        flat[i * 25 + j * 5 + k] = cube[i][j][k];
+      }
+    }
+  }
+  return flat;
+}
+
+void cube::unflattenCube(std::vector<int> flat,
+                         int cube[cube::N][cube::N][cube::N]) {
+  int new_cube[cube::N][cube::N][cube::N];
+  for (int i = 0; i < 5; ++i)
+    for (int j = 0; j < 5; ++j)
+      for (int k = 0; k < 5; ++k)
+        new_cube[i][j][k] = flat[i * 25 + j * 5 + k];
+}
+
 // Display per Layer of Cube via CMD
 void cube::displayCube() {
   for (int i = 0; i < N; ++i) {

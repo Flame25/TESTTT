@@ -6,6 +6,9 @@
 #include "GLWidget.h"
 #include "MainWindow.h"
 #include "cube.hpp"
+#include "genetic_algorithm.hpp"
+#include "simulated_annealing.hpp"
+#include "stochastic.hpp"
 
 MainWindow::MainWindow() {
   centralWidget = new QWidget;
@@ -90,10 +93,31 @@ void MainWindow::runRandomRestart() {
   glWidget->redrawGL();
 }
 
+void MainWindow::runSimulatedAnnealing() {
+  simulated_annealing::work_func();
+  glWidget->redrawGL();
+  cube::drawGraph("simulatedannealing");
+  glWidget->redrawGL();
+}
+
+void MainWindow::runStochastic() {
+  stochastic::hill_climbing();
+  glWidget->redrawGL();
+  cube::drawGraph("stochastic");
+  glWidget->redrawGL();
+}
+
 void MainWindow::runSideways() {
   side_ways::hill_climbing();
   glWidget->redrawGL();
   cube::drawGraph("sideways");
+  glWidget->redrawGL();
+}
+
+void MainWindow::runGenetic() {
+  genetic_algorithm::work_func();
+  glWidget->redrawGL();
+  cube::drawGraph("genetic");
   glWidget->redrawGL();
 }
 
@@ -125,6 +149,16 @@ void MainWindow::createActions() {
   runSide = new QAction(tr("&Sideways"), this);
   connect(runSide, SIGNAL(triggered()), this, SLOT(runSideways()));
 
+  runSimulated = new QAction(tr("&Simulated Annealing"), this);
+  connect(runSimulated, SIGNAL(triggered()), this,
+          SLOT(runSimulatedAnnealing()));
+
+  runGen = new QAction(tr("&Genetic Algorithm"), this);
+  connect(runGen, SIGNAL(triggered()), this, SLOT(runGenetic()));
+
+  runSto = new QAction(tr("&Stochastic"), this);
+  connect(runSto, SIGNAL(triggered()), this, SLOT(runStochastic()));
+
   aboutAct = new QAction(tr("&About"), this);
   connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
@@ -144,6 +178,9 @@ void MainWindow::createMenus() {
   algoMenu->addAction(runSteepest);
   algoMenu->addAction(runSide);
   algoMenu->addAction(runRandom);
+  algoMenu->addAction(runSimulated);
+  algoMenu->addAction(runSto);
+  algoMenu->addAction(runGen);
 
   helpMenu = menuBar()->addMenu(tr("&Help"));
   helpMenu->addAction(aboutAct);

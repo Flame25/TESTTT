@@ -39,6 +39,12 @@ private slots:
 
   void runSideways();
 
+  void runSimulatedAnnealing();
+
+  void runStochastic();
+
+  void runGenetic();
+
 private:
   void createActions();
 
@@ -71,6 +77,9 @@ private:
   QAction *runSteepest;
   QAction *runRandom;
   QAction *runSide;
+  QAction *runSimulated;
+  QAction *runSto;
+  QAction *runGen;
 };
 
 #endif

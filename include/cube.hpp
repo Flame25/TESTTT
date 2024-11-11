@@ -3,7 +3,9 @@
 
 #include "random_restart.hpp"
 #include "side_ways.hpp"
+#include "simulated_annealing.hpp"
 #include "steep_ascent.hpp"
+#include "stochastic.hpp"
 #include <climits>
 #include <fstream>
 #include <iostream>
@@ -24,6 +26,9 @@ const int N = 5;              // Cube size (5x5x5)
 extern int cube[N][N][N];     // 3D array to represent the cube
 extern int isTrue[N][N][N];
 extern bool statusNew;
+
+std::vector<int> flatCube(int cube[cube::N][cube::N][cube::N]);
+void unflattenCube(std::vector<int> flat, int cube[cube::N][cube::N][cube::N]);
 
 // Display per Layer of Cube via CMD
 void displayCube();

@@ -159,7 +159,9 @@ CMakeFiles/MyQtApp.dir/src/side_ways.o: \
  /home/docker/Shared/QtProject/include/cube.hpp \
  /home/docker/Shared/QtProject/include/random_restart.hpp \
  /home/docker/Shared/QtProject/include/side_ways.hpp \
+ /home/docker/Shared/QtProject/include/simulated_annealing.hpp \
  /home/docker/Shared/QtProject/include/steep_ascent.hpp \
+ /home/docker/Shared/QtProject/include/stochastic.hpp \
  /usr/include/c++/14/climits \
  /usr/lib/gcc/x86_64-linux-gnu/14/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/14/include/syslimits.h \

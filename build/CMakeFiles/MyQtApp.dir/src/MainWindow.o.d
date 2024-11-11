@@ -928,7 +928,9 @@ CMakeFiles/MyQtApp.dir/src/MainWindow.o: \
  /home/docker/Shared/QtProject/include/cube.hpp \
  /home/docker/Shared/QtProject/include/random_restart.hpp \
  /home/docker/Shared/QtProject/include/side_ways.hpp \
+ /home/docker/Shared/QtProject/include/simulated_annealing.hpp \
  /home/docker/Shared/QtProject/include/steep_ascent.hpp \
+ /home/docker/Shared/QtProject/include/stochastic.hpp \
  /usr/include/c++/14/climits /usr/include/c++/14/fstream \
  /usr/include/c++/14/istream /usr/include/c++/14/ios \
  /usr/include/c++/14/bits/basic_ios.h \
@@ -945,4 +947,7 @@ CMakeFiles/MyQtApp.dir/src/MainWindow.o: \
  /usr/include/c++/14/bits/fstream.tcc /usr/include/c++/14/iostream \
  /usr/include/c++/14/sstream /usr/include/c++/14/bits/sstream.tcc \
  /usr/include/c++/14/unordered_set \
- /usr/include/c++/14/bits/unordered_set.h
+ /usr/include/c++/14/bits/unordered_set.h \
+ /home/docker/Shared/QtProject/include/genetic_algorithm.hpp \
+ /home/docker/Shared/QtProject/include/simulated_annealing.hpp \
+ /home/docker/Shared/QtProject/include/stochastic.hpp

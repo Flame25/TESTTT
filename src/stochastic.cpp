@@ -7,6 +7,8 @@ void stochastic::setMaxIter(int n) { max_iteration = n; }
 
 // Randomizer works by taking some 10 random swap and choose best
 void stochastic::random_swap() {
+
+  int count = 0;
   // Seed the random number generator with the current time
   cube::errInfo bestData;
   bestData.error = cube::objective_func();
@@ -46,9 +48,63 @@ void stochastic::random_swap() {
 }
 void stochastic::hill_climbing() {
   setMaxIter(10000);
+  int count = 0;
+
+  if (std::remove("stochastic.txt") == 0) {
+    std::cout << "stochastic.txt was deleted successfully.\n";
+  } else {
+    std::cout << "stochastic.txt did not exist or couldn't be deleted.\n";
+  }
+
+  std::ofstream result("stochastic.txt", std::ios::app);
+  if (!result) {
+    std::cerr << "Error opening stochastic.txt for writing." << std::endl;
+    return;
+  }
+
+  if (std::remove("swap.txt") == 0) {
+    std::cout << "swap.txt was deleted successfully.\n";
+  } else {
+    std::cout << "swap.txt did not exist or couldn't be deleted.\n";
+  }
+
+  // Open swap.txt in append mode for writing scores
+  std::ofstream file("swap.txt", std::ios::app);
+  if (!file) {
+    std::cerr << "Error opening swap.txt for writing." << std::endl;
+    return;
+  }
   for (int i = 0; i < max_iteration; i++) {
+    int currentErr = cube::objective_func();
     random_swap();
+    if (!file) {
+      std::cerr << "Error opening file." << std::endl;
+      return;
+    }
+
+    file << currentErr << ";";
   }
   std::cout << "Final Error : " << cube::objective_func() << "\n"
             << "===== Stochastic Hill Climbing Done =====" << std::endl;
+
+  file.close();
+
+  // Read the content from swap.txt and prepend a new line in
+  // steepAscent.txt
+  std::ifstream read_file("swap.txt");
+  if (!read_file) {
+    std::cerr << "Error opening swap.txt for reading." << std::endl;
+    return;
+  }
+
+  std::stringstream buffer;
+  buffer << read_file.rdbuf();
+
+  std::cout << "Hello : " << buffer.str() << std::endl;
+  read_file.close();
+
+  result << count << std::endl;
+  result << buffer.str();
+  result.close();
+  return;
 }
