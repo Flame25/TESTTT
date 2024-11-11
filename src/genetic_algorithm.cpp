@@ -53,7 +53,7 @@ void genetic_algorithm::crossover(int parent1[cube::N][cube::N][cube::N],
   cube::unflattenCube(child, cube1);
   applyMutation(cube1, allowedValues, allowedSize);
   // std::cout<<"copying cube"<<std::endl;
-  cube::copyCube(cube_target1, cube1);
+  cube::copyCube(cube1, cube_target1);
 }
 
 // Function to perform Cycle Crossover on a 2D array (one layer of the 3D array)
@@ -303,7 +303,7 @@ void genetic_algorithm::work_func() {
   smallestOne.fitness = -9999;
   // std::cout << "Current Err :" << cube::objective_func() << std::endl;
   for (individual i : population) {
-    if (i.fitness > smallestOne.fitness) {
+    if (i.fitness < smallestOne.fitness) {
       smallestOne = i;
     }
   }

@@ -29,6 +29,8 @@ include_directories(${CMAKE_BINARY_DIR})
 
 # Set the CMake export compile commands
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_BUILD_TYPE Debug)
+
 
 # Source and header files
 set(SRC_FILES

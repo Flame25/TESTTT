@@ -71,7 +71,7 @@ CMakeFiles/MyQtApp_autogen: MyQtApp_autogen/timestamp
 MyQtApp_autogen/timestamp: /usr/lib/qt5/bin/moc
 MyQtApp_autogen/timestamp: CMakeFiles/MyQtApp_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/docker/Shared/QtProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target MyQtApp"
-	/usr/bin/cmake -E cmake_autogen /home/docker/Shared/QtProject/build/CMakeFiles/MyQtApp_autogen.dir/AutogenInfo.json ""
+	/usr/bin/cmake -E cmake_autogen /home/docker/Shared/QtProject/build/CMakeFiles/MyQtApp_autogen.dir/AutogenInfo.json Debug
 	/usr/bin/cmake -E touch /home/docker/Shared/QtProject/build/MyQtApp_autogen/timestamp
 
 MyQtApp_autogen: CMakeFiles/MyQtApp_autogen
